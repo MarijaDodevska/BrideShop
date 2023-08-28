@@ -1,0 +1,30 @@
+
+<style>
+    .btn{
+        background-color: #C0A32C;
+      }
+    
+</style>
+
+
+<span class="navbar-text">
+    {% if user.is_authenticated %}
+    
+    <a href="/profile" class="me-3">{{ info.nickname }}</a>
+    <a href="/cart" class="text-decoration-none">
+        <button type="button" class="btn" >Моја кошничка</button>
+    </a>
+    <a href="/admin/app/product/add/" class="text-decoration-none">
+        <button type="button" class="btn" style="color-white">
+            Додади продукт
+        </button>
+    </a>
+    <button type="button" class="btn">
+        <a href="/logout/?next=/" class="text-decoration-none ">Одјава</a>
+    </button>
+    {% else %}
+    <button type="button">
+        <a href="/login/?next=/" class="text-decoration-none ">Најава</a>
+    </button>
+    {% endif %}
+</span>

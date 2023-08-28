@@ -1,0 +1,21 @@
+{% extends 'home.html' %} {% block content %}
+<div class="container text-center">
+    <h3>
+        <span
+            class="text-decoration-underline rounded-pill py-1 px-2 d-inline-block mx-auto"
+        >
+        </span>
+    </h3>
+    <div class="row gy-3">
+        {% if products|length == 0 %}
+        <div class="col-12">
+            <h4 class="text-center">Не се пронајдени продукти(</h4>
+        </div>
+        {% endif %} {% for product in products %}
+        <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+            {% include 'product.html' %}
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

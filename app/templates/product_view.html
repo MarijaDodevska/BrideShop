@@ -1,0 +1,43 @@
+{% extends 'home.html' %} {% block content %}
+<div class="d-flex mt-5">
+    <div class="m-5">
+        <img
+            src="{{ product.image.url }}"
+            alt="{{ product.name }}"
+            class="img-fluid rounded shadow-lg thumbnail"
+            style="height: 100%"
+        />
+    </div>
+    <div>
+        <div class="mb-5 pb-5">
+            <h1>{{ product.name }}</h1>
+            <p class="fw-bold">Опис: {{ product.description }}</p>
+            <p class="fw-bold">Продавач: {{ product.user.username }}</p>
+        </div>
+        <div class="pt-5 mt-5">
+            <div class="d-flex justify-content-between">
+                <h4 class="text-success">{{ product.price }} денари</h4>
+            </div>
+            <button
+                id="{{ product.slug }}"
+                class="btn btn-secondary rounded add-to-cart"
+                data-bs-toggle="tooltip"
+                data-bs-trigger="manual"
+                data-bs-placement="top"
+                data-bs-title="Added to cart!"
+                data-bs-target="#added-to-cart"
+                type="button"
+                {% if not user.is_authenticated %} disabled {% endif %}
+            >
+                {% if not user.is_authenticated %} Најави се за да додадеш во кошничка {% else %}
+                Додади во кошничка
+                {% endif %}
+            </button>
+        </div>
+    </div>
+</div>
+<div
+    class="text-center d-flex flex-column justify-content-center align-items-center gap-3"
+>
+</div>
+{% endblock %}

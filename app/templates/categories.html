@@ -1,0 +1,21 @@
+<div class="dropdown">
+    <a
+        class="nav-link dropdown-toggle"
+        href="#"
+        role="button"
+        data-bs-toggle="dropdown"
+        style="text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5); color: #C0A32C"
+    >
+        Категории
+    </a>
+    <ul class="dropdown-menu">
+        {% for category in categories %}
+        <li key="{{ category.name }}">
+            <a href="/category/{{ category.slug }}" class="dropdown-item">
+                {{ category.name }}
+            </a>
+            <hr class="dropdown-divider" />
+        </li>
+        {% endfor %}
+    </ul>
+</div>
